@@ -40,13 +40,27 @@ public with sharing class ProcessUserExecutor {
         }
         try{
             System.debug(' KM ====>  eventType ' + requestWrapper.data.events[0].eventType);
-            String eventType = requestWrapper.data.events[0].eventType;
-            if (EVENT_TYPE_TO_INTERFACE_REALISATION_MAP.containsKey(eventType)) {
-                EVENT_TYPE_TO_INTERFACE_REALISATION_MAP.get(requestWrapper.data.events[0].eventType).processOktaUser(requestWrapper.data.events[0]);
-                OktaUsersSyncAPIUtils.handleSucces(response, 'Success', 200);
-            } else {
-                throw new ProcessUserExecutorException('Event type "' + eventType + '" is not support');
+            Map<String, List<OktaRequestWrapper.Events>> eventListByEventTypeMap = new Map<String, List<OktaRequestWrapper.Events>>();
+            for (OktaRequestWrapper.Events event : requestWrapper.data.events) {
+                if (eventListByEventTypeMap.containsKey(event.eventType)) {
+                    eventListByEventTypeMap.get(event.eventType).add(event);
+                } else {
+                    eventListByEventTypeMap.put(event.eventType, new List<OktaRequestWrapper.Events>{event});
+                }
             }
+            for (String eventType : eventListByEventTypeMap.keySet()) {
+                if (EVENT_TYPE_TO_INTERFACE_REALISATION_MAP.containsKey(eventType)) {
+                    EVENT_TYPE_TO_INTERFACE_REALISATION_MAP.get(eventType).processOktaUser(eventListByEventTypeMap.get(eventType));
+                }
+            }
+            OktaUsersSyncAPIUtils.handleSuccess(response, 'Success', 200);
+            // String eventType = requestWrapper.data.events[0].eventType;
+            // if (EVENT_TYPE_TO_INTERFACE_REALISATION_MAP.containsKey(eventType)) {
+            //     EVENT_TYPE_TO_INTERFACE_REALISATION_MAP.get(requestWrapper.data.events[0].eventType).processOktaUser(requestWrapper.data.events[0]);
+            //     OktaUsersSyncAPIUtils.handleSucces(response, 'Success', 200);
+            // } else {
+            //     throw new ProcessUserExecutorException('Event type "' + eventType + '" is not support');
+            // }
             
         }
         catch (Exception e){

@@ -11,8 +11,8 @@ public interface OktaUserProcessorInterface {
      * @author			Kostiantyn Murin <konstantin.murin@synebo.io>
      * @date			10 / 11 / 2023
      * @description		processOktaUser
-     * @param           event OktaRequestWrapper.Events
+     * @param           eventList List<OktaRequestWrapper.Events>
     **********************************************************************************************************/
-    void processOktaUser(OktaRequestWrapper.Events event);
+    void processOktaUser(List<OktaRequestWrapper.Events> eventList);
 
 }

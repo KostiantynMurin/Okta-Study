@@ -1,0 +1,111 @@
+{
+   "eventType": "com.okta.event_hook",
+   "eventTypeVersion": "1.0",
+   "cloudEventsVersion": "0.1",
+   "source": "https://dev-93972545.okta.com/api/v1/eventHooks/who2v27hzns9jr7A85d7",
+   "eventId": "b0eaa626-c855-40b7-909b-70076ec6ee49",
+   "data": {
+       "events": [
+           {
+               "uuid": "25997a27-f850-11ec-a8b6-ad9c27caf399",
+               "published": "2022-06-30T08:39:25.353Z",
+               "eventType": "user.lifecycle.deactivate",
+               "version": "0",
+               "displayMessage": "Deactivate Okta User",
+               "severity": "INFO",
+               "client": {
+                   "userAgent": {
+                       "rawUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+                       "os": "Mac OS X",
+                       "browser": "CHROME"
+                   },
+                   "zone": "null",
+                   "device": "Computer",
+                   "id": null,
+                   "ipAddress": "85.238.102.244",
+                   "geographicalContext": {
+                       "city": "Odessa",
+                       "state": "Odessa",
+                       "country": "Ukraine",
+                       "postalCode": "65000",
+                       "geolocation": {
+                           "lat": 46.4752,
+                           "lon": 30.7338
+                       }
+                   },
+                   "ipChain": [
+                       {
+                           "ip": "85.238.102.244",
+                           "geographicalContext": {
+                               "city": "Odessa",
+                               "state": "Odessa",
+                               "country": "Ukraine",
+                               "postalCode": "65000",
+                               "geolocation": {
+                                   "lat": 46.4752,
+                                   "lon": 30.7338
+                               }
+                           },
+                           "version": "V4",
+                           "source": null
+                       }
+                   ]
+               },
+               "device": null,
+               "actor": {
+                   "id": "00uz9fj5aT69fHVro1d6",
+                   "type": "User",
+                   "alternateId": "admin@okta.com",
+                   "displayName": "Admin Name",
+                   "detailEntry": null
+               },
+               "outcome": {
+                   "result": "SUCCESS",
+                   "reason": null
+               },
+               "target": [
+                   {
+                       "id": "00u2ve8t3dSoiz75u5d7",
+                       "type": "User",
+                       "alternateId": "john.doe@test.io",
+                       "displayName": "John Doe",
+                       "detailEntry": null
+                   }
+               ],
+               "transaction": {
+                   "type": "WEB",
+                   "id": "Yr1hPcvcz_ZfDDAxBOMTAwAAAU0",
+                   "detail": {}
+               },
+               "debugContext": {
+                   "debugData": {
+                       "requestId": "Yr1hPcvcz_ZfDDAxBOMTAwAAAU0",
+                       "requestUri": "/admin/user/deactivate/00u2ve8t3dSoiz75u5d7",
+                       "targetEventHookIds": "who2v27hzns9jr7A85d7",
+                       "url": "/admin/user/deactivate/00u2ve8t3dSoiz75u5d7?"
+                   }
+               },
+               "legacyEventType": "core.user.config.user_deactivated",
+               "authenticationContext": {
+                   "authenticationProvider": null,
+                   "credentialProvider": null,
+                   "credentialType": null,
+                   "issuer": null,
+                   "authenticationStep": 0,
+                   "externalSessionId": "1023QO-TenHQ-e4cs_lRQhz0w",
+                   "interface": null
+               },
+               "securityContext": {
+                   "asNumber": 6876,
+                   "asOrg": "tenet networking centre",
+                   "isp": "tenet scientific production enterprise llc",
+                   "domain": "odessa.ua",
+                   "isProxy": false
+               },
+               "insertionTimestamp": null
+           }
+       ]
+   },
+   "eventTime": "2022-06-30T08:40:32.651Z",
+   "contentType": "application/json"
+}
